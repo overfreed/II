@@ -9,29 +9,33 @@ namespace WindowsFormsApplication1
   public  class Perceptron
     {
       
-      double[,] VectorsForEducation;
-      double[,] VectorsForEducationAnswer;
-      double[,] weights;
+      double[][] VectorsForEducation;
+      double[][] VectorsForEducationAnswer;
+      double[][] weights;
       int numOfNeyron;
       int numOfWeight;
 
 
-      public Perceptron(double[,] VectorsForEducation, double[,] VectorsForEducationAnswer)
+      public Perceptron(double[][] VectorsForEducation, double[][] VectorsForEducationAnswer)
       {
           this.VectorsForEducation = VectorsForEducation;
           this.VectorsForEducationAnswer = VectorsForEducationAnswer;
-          numOfNeyron = VectorsForEducationAnswer.GetLength(0);
-          numOfWeight = VectorsForEducation.GetLength(1);  
+          numOfNeyron = VectorsForEducationAnswer.Length;
+          numOfWeight = VectorsForEducation[0].Length;  
           inicialaizeWeights();
-        }
+          educate(10,0.1);
+      }
       public void inicialaizeWeights(){
          Random rand = new Random();
-         weights = new double[numOfWeight,numOfNeyron];
+         weights = new double[numOfNeyron][];
          for (int n = 0; n < numOfNeyron; n++)
-             for (int w = 0; w < numOfNeyron; w++)
-          {
-              weights[n,w] = rand.NextDouble();
-          }
+         {
+             weights[n] = new double[numOfWeight];
+             for (int w = 0; w < numOfWeight; w++)
+             {
+                 weights[n][w] = rand.NextDouble();
+             }
+         }
       }
 
       public void educate(int numOfIter, Double Koef)
@@ -42,7 +46,7 @@ namespace WindowsFormsApplication1
                   double[] answer = new double[numOfNeyron];
                   for (int n = 0; n < numOfNeyron; n++)
                   {
-                     // answer[n] = reLU(VectorsForEducation[n],weights[n]);
+                     answer[n] = reLU(VectorsForEducation[n],weights[n]);
 
                   }
                     

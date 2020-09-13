@@ -45,28 +45,34 @@ namespace WindowsFormsApplication1
 
         private void buttonInit_Click(object sender, EventArgs e)
         {
-            double[,] VectorsForEducation = { {0,0,0,1,
-                                            0,0,1,1,
-                                            0,0,0,1,
-                                            0,0,0,1}
-                                            , 
-                                            {0,1,1,1,
-                                             0,0,0,1,
-                                             0,0,1,0,
-                                             0,1,1,1}
-                                             , 
-                                            {0,1,0,1,
-                                             0,1,0,1,
-                                             0,1,1,1,
-                                             0,0,0,1} 
-                                         
-                                         };
+            double[][] VectorsForEducation = new double[][]
+                                                            {
+                                                                new double[]{0,0,0,1,
+                                                                             0,0,1,1,
+                                                                             0,0,0,1,
+                                                                             0,0,0,1},
+                                                                new double[]{0,1,1,1,
+                                                                             0,0,0,1,
+                                                                             0,0,1,0,
+                                                                             0,1,1,1},
+                                                                new double[]{0,1,0,1,
+                                                                             0,1,0,1,
+                                                                             0,1,1,1,
+                                                                             0,0,0,1} 
+                                                            };
+
+
                                              
             //1,2,4
+            double[][] VectorsForEducationAnswers = new double[][]
+                                                            {
+                                                                new double[]{ 1, 0, 0 },
+                                                                new double[]{ 0, 1, 0 },
+                                                                new double[]{ 0, 0, 1 } 
+                                                            };
 
 
-
-            double[,] VectorsForEducationAnswers = { { 1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 } };
+        
 
 
 
