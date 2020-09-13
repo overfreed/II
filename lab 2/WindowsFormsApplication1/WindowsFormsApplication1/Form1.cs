@@ -45,7 +45,7 @@ namespace WindowsFormsApplication1
 
         private void buttonInit_Click(object sender, EventArgs e)
         {
-            int[,] VectorsForEducation = { {0,0,0,1,
+            double[,] VectorsForEducation = { {0,0,0,1,
                                             0,0,1,1,
                                             0,0,0,1,
                                             0,0,0,1}
@@ -66,12 +66,12 @@ namespace WindowsFormsApplication1
 
 
 
-            int[,] VectorsForAnswer = {{ 1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 }};
+            double[,] VectorsForEducationAnswers = { { 1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 } };
 
 
 
 
-            Perceptron P = new Perceptron(VectorsForEducation, VectorsForAnswer);  
+            Perceptron P = new Perceptron(VectorsForEducation, VectorsForEducationAnswers);  
       
         }
 
